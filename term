@@ -23,5 +23,17 @@ bash <(curl -sL https://install-anthias.srly.io)
 sudo apt update
 sudo apt install -y uxplay avahi-daemon gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-vaapi
 
-//Test:
+//Test
 uxplay -fs -vsync no
+
+//Open standard mDNS discovery port
+sudo ufw allow 5353/udp
+
+//Open UxPlay default streaming ports
+sudo ufw allow 7000/tcp
+sudo ufw allow 7100/tcp
+sudo ufw allow 8000/tcp
+sudo ufw allow 6001/udp
+sudo ufw allow 6011/udp
+sudo ufw allow 6012/udp
+sudo ufw reload
