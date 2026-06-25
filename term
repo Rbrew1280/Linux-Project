@@ -40,3 +40,13 @@ sudo ufw reload
 
 //Restart bonjour emulater
 sudo systemctl restart avahi-daemon
+
+//uxplay on port 7000 and ublock on firewall
+
+uxplay -p 7000 -fs -vsync no
+
+sudo ufw allow 5353/udp
+sudo ufw allow 7000:7002/tcp
+sudo ufw allow 7000:7002/udp
+sudo ufw reload
+
