@@ -1,1 +1,41 @@
-docker exec -it screenly-anthias-server-1 sqlite3 /data/screenly.db "SELECT uri FROM assets;"
+GNU nano 8.7.1                                                         /home/chromeboxcasttest/screenly/docker-compose.yml                                                                  
+# vim: ft=yaml.docker-compose
+
+services:
+  anthias-server:
+    image: ghcr.io/screenly/anthias-server:latest-x86
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server
+    ports:
+      - 80:8080
+    environment:
+      - MAC_ADDRESS=${MAC_ADDRESS}
+      - HOST_USER=${USER}
+      - HOME=/data
+      - LISTEN=0.0.0.0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    # Gate startup on redis actually answering PING (see the
+    # healthcheck on the redis service below) — plain service_started
+    # only orders container creation, so uvicorn's first Channels /
+    # Celery touch could still race a redis that hadn't finished
+    # loading its RDB. NOTE: docker-compose only; the balena
+    # supervisor doesn't support depends_on conditions, so fleet
+    # devices rely on each consumer's own reconnect logic instead.
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: always
+    volumes:
+      - resin-data:/data
+      - /home/${USER}/.anthias:/data/.anthias
+      - /home/${USER}/anthias_assets:/data/anthias_assets
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      io.balena.features.supervisor-api: '1'
+    logging:
+      driver: journald
+      options:
+        tag: anthias-server
