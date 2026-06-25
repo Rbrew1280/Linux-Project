@@ -1,14 +1,7 @@
 anthias-viewer:
-   network_mode: "host"
-   image: ghcr.io/screenly/anthias-viewer:latest-x86
+    image: ghcr.io/screenly/anthias-viewer:latest-x86
     build:
       context: .
       dockerfile: docker/Dockerfile.viewer
     mem_limit: 512m
-    # redis: the viewer subscribes to the anthias.viewer pub/sub
-    # channel and publishes the display resolution; wait for a PING
-    # so neither hits "connection refused" at boot. (compose-only —
-    # see the note on anthias-server's depends_on.)
-    depends_on:
-      anthias-server:
-        condition: service_started
+    network_mode: "host"
