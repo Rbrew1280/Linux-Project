@@ -1,15 +1,19 @@
-hromeboxcasttest@chromeboxcasttest-Panther:~/screenly$ docker compose up -d
-WARN[0000] project has been loaded without an explicit name from a symlink. Using name "screenly" 
 WARN[0000] The "MAC_ADDRESS" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DOCKER_TAG" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DEVICE_TYPE" variable is not set. Defaulting to a blank string. 
 WARN[0000] The "LANGUAGE" variable is not set. Defaulting to a blank string. 
 WARN[0000] The "LC_ALL" variable is not set. Defaulting to a blank string. 
 WARN[0000] The "ANTHIAS_LOW_RAM" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DOCKER_TAG" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DEVICE_TYPE" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DOCKER_TAG" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DEVICE_TYPE" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DOCKER_TAG" variable is not set. Defaulting to a blank string. 
-WARN[0000] The "DEVICE_TYPE" variable is not set. Defaulting to a blank string. 
-unable to get image 'ghcr.io/screenly/anthias-redis:-': Error response from daemon: invalid reference format
+[+] up 3/3
+ ! Image ghcr.io/screenly/anthias-viewer:master failed to resolve reference "ghcr.io/screenly/anthias-viewer:master": ghcr.io/screenly/anthias-viewer:master: not found                   0.5s
+ ! Image ghcr.io/screenly/anthias-server:master failed to resolve reference "ghcr.io/screenly/anthias-server:master": ghcr.io/screenly/anthias-server:master: not found                   0.4s
+ ! Image ghcr.io/screenly/anthias-redis:master  failed to resolve reference "ghcr.io/screenly/anthias-redis:master": ghcr.io/screenly/anthias-redis:master: not found                     0.4s
+[+] Building 0.8s (4/4) FINISHED                                                                                                                                                              
+ => [internal] load local bake definitions                                                                                                                                               0.0s
+ => => reading from stdin 1.53kB                                                                                                                                                         0.0s
+ => [redis internal] load build definition from Dockerfile.redis                                                                                                                         0.2s
+ => => transferring dockerfile: 2B                                                                                                                                                       0.0s
+[+] up 0/3as-viewer internal] load build definition from Dockerfile.viewer                                                                                                               0.2s
+ ⠼ Image ghcr.io/screenly/anthias-viewer:master Building                                                                                                                                  2.1s
+ ⠼ Image ghcr.io/screenly/anthias-server:master Building                                                                                                                                  2.1s
+ ⠼ Image ghcr.io/screenly/anthias-redis:master  Building                                                                                                                                  2.1s
+target anthias-server: failed to solve: failed to read dockerfile: open Dockerfile.server: no such file or directory
+
