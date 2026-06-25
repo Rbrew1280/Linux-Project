@@ -17,3 +17,11 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker ChromeBoxCastTest
 
 bash <(curl -sL https://install-anthias.srly.io)
+//Anthias steps^^
+//UxSignage
+
+sudo apt update
+sudo apt install -y uxplay avahi-daemon gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-vaapi
+
+//Test:
+uxplay -fs -vsync no
