@@ -24,7 +24,18 @@ sudo systemctl start docker.service
 
 cd ~/screenly
 docker compose up -d --remove-orphans
-firefox --kiosk http://localhost:80
+mkdir -p ~/.config/autostart
+nano ~/.config/autostart/anthias-kiosk.desktop
+  [Desktop Entry]
+Type=Application
+Exec=firefox --kiosk http://localhost
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Anthias Signage Kiosk
+Comment=Launches local digital signage player on boot
+
+chmod +x ~/.config/autostart/anthias-kiosk.desktop
 
 //Anthias steps^^
 //UxSignage
