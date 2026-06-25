@@ -72,7 +72,7 @@ services:
     volumes:
       - ./data:/data
     ports:
-      - "80:80"
+      - "80:8080"
     mem_limit: 512m
 
   anthias-celery:
