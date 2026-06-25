@@ -1,7 +1,1 @@
-anthias-viewer:
-    image: ghcr.io/screenly/anthias-viewer:latest-x86
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.viewer
-    mem_limit: 512m
-    network_mode: "host"
+docker exec -it screenly-anthias-server-1 sqlite3 /data/screenly.db "SELECT uri FROM assets;"
