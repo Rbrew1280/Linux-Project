@@ -1,1 +1,8 @@
-Exec=sh -c "sleep 15 && firefox --kiosk http://127.0.0.1:8080"
+[Desktop Entry]
+Type=Application
+Exec=sh -c "sleep 15 && firefox --kiosk http://127.0.0.1/splash-page"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Anthias Signage Kiosk
+Comment=Launches local digital signage player after a 15s delay
