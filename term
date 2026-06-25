@@ -37,3 +37,6 @@ sudo ufw allow 6001/udp
 sudo ufw allow 6011/udp
 sudo ufw allow 6012/udp
 sudo ufw reload
+
+//Restart bonjour emulater
+sudo systemctl restart avahi-daemon
