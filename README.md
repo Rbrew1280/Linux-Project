@@ -54,7 +54,7 @@ YAML
 version: '3'
 
 services:
-  anthias-redis:
+  redis:
     image: ghcr.io/screenly/anthias-redis:latest-x86
     restart: always
     mem_limit: 512m
@@ -63,11 +63,31 @@ services:
     image: ghcr.io/screenly/anthias-server:latest-x86
     restart: always
     depends_on:
-      - anthias-redis
+      - redis
+    environment:
+      - HOME=/data
+      - LISTEN=0.0.0.0
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
     volumes:
       - ./data:/data
     ports:
       - "80:80"
+    mem_limit: 512m
+
+  anthias-celery:
+    image: ghcr.io/screenly/anthias-server:latest-x86
+    restart: always
+    depends_on:
+      - redis
+      - anthias-server
+    command: celery -A anthias_server.celery_tasks.celery worker -B -n worker@anthias --loglevel=info
+    environment:
+      - HOME=/data
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    volumes:
+      - ./data:/data
     mem_limit: 512m
 
   anthias-viewer:
@@ -78,15 +98,9 @@ services:
       - anthias-server
     environment:
       - DISPLAY=:0
+      - WLR_DRM_NO_ATOMIC=1
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-    mem_limit: 512m
-
-  anthias-websocket:
-    image: ghcr.io/screenly/anthias-websocket:latest-x86
-    restart: always
-    depends_on:
-      - anthias-server
     mem_limit: 512m
 
 Press Ctrl + O, then Enter to save, and Ctrl + X to exit the text editor.
