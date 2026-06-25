@@ -1,8 +1,41 @@
-[Desktop Entry]
-Type=Application
-Exec=sh -c "sleep 15 && firefox --kiosk http://127.0.0.1/splash-page"
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Name=Anthias Signage Kiosk
-Comment=Launches local digital signage player after a 15s delay
+casttest@casttest-Panther:~$ sudo docker logs screenly-anthias-viewer-1
+sed: can't read /proc/asound/cards: No such file or directory
+W: [pulseaudio] core-util.c: Failed to open configuration file '/root/.config/pulse//daemon.conf': Permission denied
+W: [pulseaudio] daemon-conf.c: Failed to open configuration file: Permission denied
+start_viewer: pulseaudio failed to start — video will play without audio
+Authorization required, but no authorization protocol specified
+
+00:00:00.001 [ERROR] [backend/x11/backend.c:413] Failed to open xcb connection
+00:00:00.001 [ERROR] [../cage.c:318] Unable to create the wlroots backend
+sed: can't read /proc/asound/cards: No such file or directory
+W: [pulseaudio] core-util.c: Failed to open configuration file '/root/.config/pulse//daemon.conf': Permission denied
+W: [pulseaudio] daemon-conf.c: Failed to open configuration file: Permission denied
+start_viewer: pulseaudio failed to start — video will play without audio
+Authorization required, but no authorization protocol specified
+
+00:00:11.432 [ERROR] [backend/x11/backend.c:413] Failed to open xcb connection
+00:00:11.432 [ERROR] [../cage.c:318] Unable to create the wlroots backend
+sed: can't read /proc/asound/cards: No such file or directory
+W: [pulseaudio] core-util.c: Failed to open configuration file '/root/.config/pulse//daemon.conf': Permission denied
+W: [pulseaudio] daemon-conf.c: Failed to open configuration file: Permission denied
+start_viewer: pulseaudio failed to start — video will play without audio
+Authorization required, but no authorization protocol specified
+
+00:00:11.455 [ERROR] [backend/x11/backend.c:413] Failed to open xcb connection
+00:00:11.457 [ERROR] [../cage.c:318] Unable to create the wlroots backend
+sed: can't read /proc/asound/cards: No such file or directory
+W: [pulseaudio] core-util.c: Failed to open configuration file '/root/.config/pulse//daemon.conf': Permission denied
+W: [pulseaudio] daemon-conf.c: Failed to open configuration file: Permission denied
+start_viewer: pulseaudio failed to start — video will play without audio
+Authorization required, but no authorization protocol specified
+
+00:00:11.131 [ERROR] [backend/x11/backend.c:413] Failed to open xcb connection
+00:00:11.131 [ERROR] [../cage.c:318] Unable to create the wlroots backend
+sed: can't read /proc/asound/cards: No such file or directory
+W: [pulseaudio] core-util.c: Failed to open configuration file '/root/.config/pulse//daemon.conf': Permission denied
+W: [pulseaudio] daemon-conf.c: Failed to open configuration file: Permission denied
+start_viewer: pulseaudio failed to start — video will play without audio
+Authorization required, but no authorization protocol specified
+
+00:00:11.449 [ERROR] [backend/x11/backend.c:413] Failed to open xcb connection
+00:00:11.452 [ERROR] [../cage.c:318] Unable to create the wlroots backend
