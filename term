@@ -50,3 +50,24 @@ sudo ufw allow 7000:7002/tcp
 sudo ufw allow 7000:7002/udp
 sudo ufw reload
 
+//Create run on start
+sudo nano /etc/systemd/system/uxplay.service
+
+[Unit]
+Description=UxPlay AirPlay Receiver
+After=network.target avahi-daemon.service
+
+[Service]
+Type=simple
+User=chromeboxcasttest
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/uxplay -fs -vsync no
+Restart=on-failure
+
+[Install]
+WantedBy=graphical.target
+
+//
+sudo systemctl daemon-reload
+sudo systemctl enable uxplay.service
+sudo systemctl start uxplay.service
