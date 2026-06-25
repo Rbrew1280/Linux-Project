@@ -1,1 +1,12 @@
-http://localhost:8080
+chromeboxcasttest@chromeboxcasttest-Panther:~/screenly$ docker compose run --rm server python bin/sync_assets.py
+WARN[0000] project has been loaded without an explicit name from a symlink. Using name "screenly" 
+WARN[0000] The "MAC_ADDRESS" variable is not set. Defaulting to a blank string. 
+WARN[0000] The "LANGUAGE" variable is not set. Defaulting to a blank string. 
+WARN[0000] The "LC_ALL" variable is not set. Defaulting to a blank string. 
+WARN[0000] The "ANTHIAS_LOW_RAM" variable is not set. Defaulting to a blank string. 
+no such service: server
+chromeboxcasttest@chromeboxcasttest-Panther:~/screenly$ docker run --rm server python bin/sync_assets.py
+Unable to find image 'server:latest' locally
+docker: Error response from daemon: pull access denied for server, repository does not exist or may require 'docker login'
+
+Run 'docker run --help' for more information
