@@ -1,8 +1,1 @@
-[Desktop Entry]
-Type=Application
-Exec=sh -c "sleep 10 && export DISPLAY=:0 && xhost +"
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-Name=Grant Docker Display Access
-Comment=Unlocks X11 display permissions for Anthias viewer
+sudo mv /usr/share/wayland-sessions /usr/share/wayland-sessions-disabled
