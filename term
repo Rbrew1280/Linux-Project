@@ -17,6 +17,15 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo usermod -aG docker ChromeBoxCastTest
 
 bash <(curl -sL https://install-anthias.srly.io)
+
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+sudo systemctl start docker.service
+
+cd ~/screenly
+docker compose up -d --remove-orphans
+firefox --kiosk http://localhost:80
+
 //Anthias steps^^
 //UxSignage
 
