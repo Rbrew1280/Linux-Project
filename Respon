@@ -1,1 +1,2 @@
-docker exec -it screenly-anthias-server-1 python bin/sync_assets.py
+chromeboxcasttest@chromeboxcasttest-Panther:~/screenly$ docker exec -it screenly-anthias-server-1 python bin/sync_assets.py
+python: can't open file '/usr/src/app/bin/sync_assets.py': [Errno 2] No such file or directory
