@@ -36,21 +36,21 @@ sudo usermod -aG docker $USER
 Phase 3: Deploy the Signage Stack (Anthias)
 Once rebooted, open your terminal back up and build the local digital signage container engine using our customized, hardcoded settings.
 Create the screenly folder structure:
-Bash
+
 mkdir -p ~/screenly && cd ~/screenly
 
 
 
 
 Open a new configuration file:
-Bash
+
 nano docker-compose.yml
 
 
 
 
 Paste this exact configuration block, which uses the correct x86 images, fixes the memory issues, and strips out the broken Raspberry Pi driver dependencies:
-YAML
+
 version: '3'
 
 services:
@@ -105,7 +105,7 @@ services:
 
 Press Ctrl + O, then Enter to save, and Ctrl + X to exit the text editor.
 Launch the containers in background mode:
-Bash
+
 docker compose up -d
 
 
@@ -117,7 +117,7 @@ Open Firefox manually.
 Click the Menu (three lines) in the top right corner → Settings.
 Scroll down to the very bottom of the General tab and click Settings... under Network Settings.
 Find the text box labeled "No proxy for" and add this exact string to it:
-Plaintext
+
 localhost, 127.0.0.1, 192.168.0.0/16, 10.0.0.0/8
 
 
@@ -127,14 +127,14 @@ Click OK and close Firefox.
 Phase 5: Automate Screen Mirroring (UxPlay Service)
 Create a system service so the AirPlay receiver starts automatically at boot on pinned, unblocked ports.
 Open a terminal file creator:
-Bash
+
 sudo nano /etc/systemd/system/uxplay.service
 
 
 
 
 Paste this configuration block (replace yourusername with the actual name of your Chromebox Ubuntu user profile):
-Plaintext
+
 [Unit]
 Description=UxPlay AirPlay Receiver
 After=network.target avahi-daemon.service docker.service
@@ -154,7 +154,7 @@ WantedBy=graphical.target
 
 Save and close (Ctrl + O, Enter, Ctrl + X).
 Register and enable the background hook:
-Bash
+
 sudo systemctl daemon-reload
 sudo systemctl enable uxplay.service
 sudo systemctl start uxplay.service
@@ -165,21 +165,21 @@ sudo systemctl start uxplay.service
 Phase 6: Automate the Fullscreen Kiosk on Boot
 Finally, create the startup rule that launches Firefox directly into fullscreen mode after waiting for Docker to finish loading.
 Make sure the hidden user autostart folder exists:
-Bash
+
 mkdir -p ~/.config/autostart
 
 
 
 
 Create the startup config file:
-Bash
+
 nano ~/.config/autostart/anthias-kiosk.desktop
 
 
 
 
 Paste this desktop metadata inside:
-Plaintext
+
 [Desktop Entry]
 Type=Application
 Exec=sh -c "sleep 10 && firefox --kiosk http://127.0.0.1"
@@ -194,7 +194,7 @@ Comment=Launches local digital signage player after a 10s delay
 
 Save and close (Ctrl + O, Enter, Ctrl + X).
 Give the startup shortcut executable rights:
-Bash
+
 chmod +x ~/.config/autostart/anthias-kiosk.desktop
 
 
