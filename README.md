@@ -201,6 +201,6 @@ chmod +x ~/.config/autostart/anthias-kiosk.desktop
 
 
 Final Verification
-Give the system a full reboot: sudo reboot.
+Give the system a full reboot: systemctl reboot -i
 The Chromebox will log in autonomously, sit on the desktop for 10 seconds while Docker initializes the layout, and then snap open into a beautiful full-screen digital signage loop. You can now connect to it via AirPlay at any time or manage your slides by pulling up the device's IP address on your laptop!
 
