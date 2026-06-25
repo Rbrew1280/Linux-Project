@@ -1,15 +1,12 @@
-anthias-server:
-    image: ghcr.io/screenly/anthias-server:latest-x86
-    ports:
-      - "80:80"
-    environment:
-      - HOME=/data
-      - LISTEN=0.0.0.0
-      - CELERY_BROKER_URL=redis://redis:6379/0
-      - CELERY_RESULT_BACKEND=redis://redis:6379/0
-    depends_on:
-      - redis
-    restart: always
-    volumes:
-      - ./data:/data
-    mem_limit: 512m
+casttest@casttest-Panther:~$ mkdir -p ~/screenly && cd ~/screenly
+casttest@casttest-Panther:~/screenly$ nano docker-compose.yml
+casttest@casttest-Panther:~/screenly$ docker compose up -d
+[+] up 4/4
+ ✘ Image ghcr.io/screenly/anthias-websocket:latest-x86 Error error...       0.5s
+ ! Image ghcr.io/screenly/anthias-redis:latest-x86     Interrupted          0.5s
+ ! Image ghcr.io/screenly/anthias-server:latest-x86    Interrupted          0.5s
+ ! Image ghcr.io/screenly/anthias-viewer:latest-x86    Interrupted          0.5s
+Error response from daemon: error from registry: denied
+denied
+casttest@casttest-Panther:~/screenly$ 
+
