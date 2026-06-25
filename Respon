@@ -1,1 +1,5 @@
-Error response from daemon: error gathering device information while adding custom device "/dev/vchiq": no such file or directory
+CONTAINER ID   IMAGE                                        COMMAND                  CREATED          STATUS                   PORTS                                     NAMES
+4d85b05db87a   ghcr.io/screenly/anthias-viewer:latest-x86   "bash ./bin/start_vi…"   53 minutes ago   Up 8 minutes                                                       screenly-anthias-viewer-1
+3dc4280f2a93   ghcr.io/screenly/anthias-server:latest-x86   "nice -n 19 ionice -…"   53 minutes ago   Up 8 minutes                                                       screenly-anthias-celery-1
+f20fd1460d24   ghcr.io/screenly/anthias-server:latest-x86   "bash bin/start_serv…"   53 minutes ago   Up 8 minutes             0.0.0.0:80->8080/tcp, [::]:80->8080/tcp   screenly-anthias-server-1
+8fc4bd06a246   ghcr.io/screenly/anthias-redis:latest-x86    "redis-server --prot…"   53 minutes ago   Up 8 minutes (healthy)   127.0.0.1:6379->6379/tcp                  screenly-redis-1
